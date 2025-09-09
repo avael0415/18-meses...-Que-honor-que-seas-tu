@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para Karla 💛</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background:#fff8e7;
+      font-family: "Segoe UI", Arial, sans-serif;
+      text-align:center;
+      overflow:hidden;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    }
+    h1 {
+      font-size:28px;
+      color:#5a4633;
+      margin-bottom:10px;
+    }
+    p {
+      max-width:700px;
+      font-size:18px;
+      line-height:1.6;
+      color:#3e2a1f;
+      margin:0 auto 10px;
+      padding:0 20px;
+    }
+    .pompom {
+      margin:20px 0;
+      width:220px;
+    }
+    /* corazones amarillos flotando */
+    .heart {
+      position: absolute;
+      color: #ffd54f;
+      font-size: 24px;
+      animation: float 8s linear infinite;
+      opacity: 0.8;
+    }
+    @keyframes float {
+      0%   { transform: translateY(100vh) scale(1); opacity:0; }
+      10%  { opacity:1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity:0; }
+    }
+    /* Botón personalizado */
+    .btn-music {
+      margin-top:25px;
+      padding:12px 24px;
+      font-size:18px;
+      border:none;
+      border-radius:30px;
+      background:#ffd54f;
+      color:#4b3a1f;
+      font-weight:bold;
+      cursor:pointer;
+      box-shadow:0 6px 15px rgba(0,0,0,0.15);
+      transition:transform 0.2s, background 0.2s;
+    }
+    .btn-music:hover {
+      transform:scale(1.05);
+      background:#ffea80;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Para Karla 💛</h1>
+
+  <!-- Imagen de Pompompurin -->
+  <img src="pompompurin.png" alt="Pompompurin" class="pompom">
+
+  <p>Amor mío, hoy celebramos 18 meses de nuestra historia, una historia que siempre guardaré en lo más profundo de mi corazón.  
+  Aunque ahora estemos en una pausa, quiero que sepas que te amo con toda mi alma.  
+  Te extraño en cada momento, en cada silencio, en cada pensamiento.  
+  Y no importa cuánto tiempo pase, yo te esperaré, porque mi amor por ti es eterno y sincero.  
+  Tú eres y siempre serás mi mayor alegría, la persona que me inspira y me llena de vida.  
+  </p>
+  <p>
+  Pase lo que pase, quiero que recuerdes que mi corazón es tuyo, y que jamás dejaré de amarte. 💛  
+  </p>
+
+  <!-- Botón para reproducir música -->
+  <button class="btn-music" onclick="playMusic()">🎶 Dale play a nuestro amor 💛</button>
+
+  <!-- Música personalizada -->
+  <audio id="bg-music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
+
+  <script>
+    // Crear corazones amarillos flotando
+    function crearCorazon() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💛";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (20 + Math.random() * 30) + "px";
+      heart.style.animationDuration = (6 + Math.random() * 5) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+    setInterval(crearCorazon, 700);
+
+    // Reproducir música al dar click en el botón
+    function playMusic() {
+      const music = document.getElementById("bg-music");
+      music.play();
+    }
+  </script>
+
+</body>
+</html>
